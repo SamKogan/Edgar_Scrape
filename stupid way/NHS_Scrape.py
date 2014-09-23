@@ -4,15 +4,16 @@ from selenium.common.exceptions import NoSuchElementException
 import pandas as pd
 
 #Import excel data into pandas dataframe
-y = pd.read_csv('Parent Organisation to Complete v0.1.csv') #import CSV file with MIU data
-a = y['Site name'] #search by sitename columnn 
-c = y['Address']
+y = pd.read_csv('mfv.mgrname13F.csv') #import CSV file containing the names of the 
+a = y['mgrname'] #search by mgrname columnn 
 
 #open browser
-driver = webdriver.Firefox()
+driver = webdriver.Chrome()
 
 #placeholder: create pandas dataframe to store info
-placeholder = pd.DataFrame(index=[range(0,200)], columns=['site name', 'trust name'])
+placeholder = pd.DataFrame(index=[range(0,5934)], columns=['mgrno', 'mgrname','country','zipcode'])
+
+#search keyword name +sec +edgar
 
 #create scrape function for nhs site
 def scrape():
