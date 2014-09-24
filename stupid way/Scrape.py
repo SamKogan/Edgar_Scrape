@@ -17,18 +17,13 @@ placeholder = pd.DataFrame(index=[range(0,20)], columns=['mgrno', 'mgrname','cou
 
 #create scrape function
 def scrape():
-	data = urllib2.urlopen(url).read(4000) # read only 5 000 chars
-	# data = data.split(str="\n") # then split it into lines
-	# print(data)
-	data = data.lower()
-	if "zip" in data: 
-		print(True)
-		for line in data:
-			if "zip" in line: 
-				print(line)
-				break
-	else:
-		print(False)
+	data = urllib2.urlopen(url)
+	for line in data:
+		if "ZIP" in line: 
+			a = line.replace('ZIP:','')
+			a = a.replace('	','')
+			print a
+			break
 
 
 def readystate_complete(d):
