@@ -24,7 +24,9 @@ def scrape():
 	if "zip" in data: 
 		print(True)
 		for line in data:
-			if "zip" in line: print(line)
+			if "zip" in line: 
+				print(line)
+				break
 	else:
 		print(False)
 
